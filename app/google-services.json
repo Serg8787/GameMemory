@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "508757239595",
+    "project_id": "gamememory-6fdd6",
+    "storage_bucket": "gamememory-6fdd6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508757239595:android:121cf7efbac7523258476e",
+        "android_client_info": {
+          "package_name": "com.tsybulnik.gamememory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508757239595-hbmhs2n397q3ccndv39fitq5a0i23v97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQsANEF73xOGa-iokljTT7X3ZawD_zlVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508757239595-hbmhs2n397q3ccndv39fitq5a0i23v97.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

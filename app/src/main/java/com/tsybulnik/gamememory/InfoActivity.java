@@ -3,6 +3,7 @@ package com.tsybulnik.gamememory;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,11 +16,20 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 public class InfoActivity extends AppCompatActivity {
     private TextView developerName;
     private TextView developerSurname;
+    private TextView model;
+    private TextView manufactura;
+    private TextView versionAndroid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+
+        model = findViewById(R.id.tv_model);
+        manufactura = findViewById(R.id.tv_manufacture);
+        versionAndroid = findViewById(R.id.tv_release);
+        developerName = findViewById(R.id.tv_developer_name);
+        developerSurname = findViewById(R.id.tv_developer_surname);
 
         FirebaseRemoteConfig mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
@@ -35,24 +45,14 @@ public class InfoActivity extends AppCompatActivity {
         mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
             @Override
             public void onComplete(@NonNull Task<Boolean> task) {
-                if (task.isSuccessful()) {
-                    boolean updated = task.getResult();
-
-                    Toast.makeText(InfoActivity.this, "Fetch and activate succeeded",
-                            Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Toast.makeText(InfoActivity.this, "Fetch failed",
-                            Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
 
-
-        developerName = findViewById(R.id.tv_developer_name);
         developerName.setText(name);
-        developerSurname = findViewById(R.id.tv_developer_surname);
         developerSurname.setText(surname);
+        model.setText(Build.MODEL);
+        manufactura.setText(Build.MANUFACTURER);
+        versionAndroid.setText(android.os.Build.VERSION.RELEASE);
     }
 }
