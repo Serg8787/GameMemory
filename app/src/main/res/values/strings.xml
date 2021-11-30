@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GameMemory</string>
+    <string name="choose_level_title">Выбирите уровень</string>
+    <string name="easy_level">Первый уровень</string>
+    <string name="normal_level">Второй уровень</string>
+    <string name="hard_level">Третий уровень</string>
+</resources>
