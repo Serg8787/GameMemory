@@ -332,7 +332,7 @@ public class GameSimpleActivity extends AppCompatActivity {
             AlertDialog.Builder alertBulder = new AlertDialog.Builder(GameSimpleActivity.this);
             alertBulder.setMessage("Конец игры")
                     .setCancelable(false)
-                    .setPositiveButton("New GAME", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("Новая игра", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             retryGame();
@@ -381,6 +381,9 @@ public class GameSimpleActivity extends AppCompatActivity {
         iv_33.setImageResource(R.drawable.question);
 
         iv_41.setVisibility(View.VISIBLE);
+        iv_41.setImageResource(R.drawable.question);
+
+        iv_42.setVisibility(View.VISIBLE);
         iv_42.setImageResource(R.drawable.question);
 
 
