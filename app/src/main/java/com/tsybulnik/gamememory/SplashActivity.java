@@ -2,9 +2,10 @@ package com.tsybulnik.gamememory;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +17,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SplashActivity extends AppCompatActivity {
     private TextView tvSplash;
+    private WebView webView;
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_main);
         tvSplash = findViewById(R.id.tvSplash);
+        webView = findViewById(R.id.webView);
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -36,9 +40,18 @@ public class SplashActivity extends AppCompatActivity {
             public void onResponse(Call<Model> call, Response<Model> response) {
                 if (response != null) {
                     String geo = response.body().getCountry();
-                   if(geo.equals("RU")){
-
-                   }
+                    if (geo.equals("RU")) {
+                        webView.setVisibility(View.VISIBLE);
+                        webView.loadUrl("https://ru.wikipedia.org/wiki/");
+                    } else if (geo.equals("UA")) {
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(SplashActivity.this, LevelActivity.class);
+                                startActivity(intent);
+                            }
+                        }, 700);
+                    }
                 }
             }
 
@@ -49,15 +62,7 @@ public class SplashActivity extends AppCompatActivity {
         });
 
 
-        tvSplash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SplashActivity.this, LevelActivity.class);
-                startActivity(intent);
-            }
-        });
 
-//        String geo = response.body().getCountry();
-//        Toast.makeText(SplashActivity.this,geo,Toast.LENGTH_LONG).show();
+
     }
 }
