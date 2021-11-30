@@ -65,8 +65,9 @@
         android:id="@+id/bt_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Data from AppFlyer and FireBase"
+        android:text="Get Data"
         android:layout_margin="15dp"
+        android:backgroundTint="@android:color/holo_blue_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

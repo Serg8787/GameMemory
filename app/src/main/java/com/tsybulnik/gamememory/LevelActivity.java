@@ -26,7 +26,6 @@ public class LevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-        Log.d("MyLog", "Conversion attribute: ");
 
 //        AppsFlyerLib appsflyer = AppsFlyerLib.getInstance();
         AppsFlyerLib appsflyer = AppsFlyerLib.getInstance().init("cBSeCBmTkWgWXb4cPFvgHn", null, this);
@@ -96,19 +95,6 @@ public class LevelActivity extends AppCompatActivity {
         btData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(LevelActivity.this, id, Toast.LENGTH_LONG).show();
-//                String phoneModel = android.os.Build.MODEL;
-//                Toast.makeText(LevelActivity.this,phoneModel , Toast.LENGTH_LONG).show();
-//
-//                // Android version
-//                String androidVersion = android.os.Build.VERSION.RELEASE;
-//                Toast.makeText(LevelActivity.this, androidVersion, Toast.LENGTH_LONG).show();
-//
-//                String man = Build.MANUFACTURER;
-//                Toast.makeText(LevelActivity.this,man, Toast.LENGTH_LONG).show();
-//
-//                String model = Build.MODEL;
-//                Toast.makeText(LevelActivity.this,model, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LevelActivity.this,InfoActivity.class);
                 startActivity(intent);
 

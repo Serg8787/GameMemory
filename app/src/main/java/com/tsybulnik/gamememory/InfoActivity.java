@@ -40,12 +40,10 @@ public class InfoActivity extends AppCompatActivity {
 
 
         String name = mFirebaseRemoteConfig.getString("developer_name");
-        Toast.makeText(InfoActivity.this,name,Toast.LENGTH_LONG).show();
         String surname = mFirebaseRemoteConfig.getString("developer_surname");
         mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
             @Override
             public void onComplete(@NonNull Task<Boolean> task) {
-
             }
         });
 
