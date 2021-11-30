@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameMemory">
         <activity
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".GameSimpleActivity"
             android:exported="false" />
         <activity
