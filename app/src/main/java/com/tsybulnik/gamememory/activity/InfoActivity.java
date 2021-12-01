@@ -62,32 +62,33 @@ public class InfoActivity extends AppCompatActivity {
                 if(status.equals("Non-organic")){
                     if( Objects.requireNonNull(conversionDataMap.get("is_first_launch")).toString().equals("true")){
                         Log.d(LOG_TAG,"Conversion: First Launch");
+                        tv_appsFluersParametrs.setText(conversionDataMap.toString());
                     } else {
                         Log.d(LOG_TAG,"Conversion: Not First Launch");
+                        tv_appsFluersParametrs.setText(conversionDataMap.toString());
                     }
                 } else {
-                    Log.d(LOG_TAG, "Conversion: This is an organic install.");
+                    Log.d(LOG_TAG, "Conversion: This is an organic install."+conversionDataMap.toString());
+                    tv_appsFluersParametrs.setText(conversionDataMap.toString());
+
                 }
                 conversionData = conversionDataMap;
-                String con = conversionData.toString();
             }
 
             @Override
             public void onConversionDataFail(String errorMessage) {
                 Log.d(LOG_TAG, "error getting conversion data: "+errorMessage);
-                tv_appsFluersParametrs.setText(errorMessage);
             }
 
             @Override
             public void onAppOpenAttribution(Map<String, String> attributionData) {
                 Log.d(LOG_TAG, "onAppOpenAttribution: This is fake call.");
-                String att = attributionData.toString();
+
             }
 
             @Override
             public void onAttributionFailure(String errorMessage) {
                 Log.d(LOG_TAG, "error onAttributionFailure : " + errorMessage);
-                String e = errorMessage;
             }
         };
         appsflyer.init(afDevKey, conversionListener, this);
@@ -105,18 +106,17 @@ public class InfoActivity extends AppCompatActivity {
         mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings);
 
 
-        String name = mFirebaseRemoteConfig.getString("developer_name");
-        String surname = mFirebaseRemoteConfig.getString("developer_surname");
-
         // for real-time
         mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
             @Override
             public void onComplete(@NonNull Task<Boolean> task) {
+                String name = mFirebaseRemoteConfig.getString("developer_name");
+                String surname = mFirebaseRemoteConfig.getString("developer_surname");
+                developerName.setText(name);
+                developerSurname.setText(surname);
             }
         });
 
-        developerName.setText(name);
-        developerSurname.setText(surname);
         model.setText(Build.MODEL);
         manufactura.setText(Build.MANUFACTURER);
         versionAndroid.setText(android.os.Build.VERSION.RELEASE);
