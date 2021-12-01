@@ -1,6 +1,4 @@
-package com.tsybulnik.gamememory;
-
-import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+package com.tsybulnik.gamememory.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,14 +9,13 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appsflyer.AppsFlyer2dXConversionCallback;
 import com.appsflyer.AppsFlyerConversionListener;
 import com.appsflyer.AppsFlyerLib;
-import com.appsflyer.attribution.AppsFlyerRequestListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+import com.tsybulnik.gamememory.R;
 
 import java.util.Map;
 import java.util.Objects;

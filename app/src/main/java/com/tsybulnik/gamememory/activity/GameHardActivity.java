@@ -1,4 +1,4 @@
-package com.tsybulnik.gamememory;
+package com.tsybulnik.gamememory.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.tsybulnik.gamememory.R;
 
 import java.util.Arrays;
 import java.util.Collections;

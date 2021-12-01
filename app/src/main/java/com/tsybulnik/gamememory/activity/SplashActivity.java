@@ -1,4 +1,4 @@
-package com.tsybulnik.gamememory;
+package com.tsybulnik.gamememory.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,10 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tsybulnik.gamememory.R;
 import com.tsybulnik.gamememory.network.ApiService;
 import com.tsybulnik.gamememory.network.Model;
 

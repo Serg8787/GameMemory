@@ -16,22 +16,22 @@
         android:theme="@style/Theme.GameMemory">
         tools: replace = "android: fullBackupContent"
         <activity
-            android:name=".InfoActivity"
+            android:name=".activity.InfoActivity"
             android:exported="false" />
         <activity
-            android:name=".GameSimpleActivity"
+            android:name=".activity.GameSimpleActivity"
             android:exported="false" />
         <activity
-            android:name=".GameMiddleActivity"
+            android:name=".activity.GameMiddleActivity"
             android:exported="false" />
         <activity
-            android:name=".GameHardActivity"
+            android:name=".activity.GameHardActivity"
             android:exported="false" />
         <activity
-            android:name=".LevelActivity"
+            android:name=".activity.LevelActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".firebase.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

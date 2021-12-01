@@ -1,20 +1,14 @@
-package com.tsybulnik.gamememory;
+package com.tsybulnik.gamememory.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.appsflyer.AppsFlyerConversionListener;
-import com.appsflyer.AppsFlyerLib;
-
-import java.util.Map;
-import java.util.Objects;
+import com.tsybulnik.gamememory.R;
 
 public class LevelActivity extends AppCompatActivity {
     private Button btLevelSimple;
