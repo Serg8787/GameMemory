@@ -24,39 +24,26 @@ public class LevelActivity extends AppCompatActivity {
         btLevelSimple = findViewById(R.id.btLevelEasy);
         btLevelNormal = findViewById(R.id.tv_developer_surname);
         btLevelHard = findViewById(R.id.tv_);
-        btLevelSimple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LevelActivity.this, GameSimpleActivity.class);
-                startActivity(intent);
+        btLevelSimple.setOnClickListener(v -> {
+            Intent intent = new Intent(LevelActivity.this, GameSimpleActivity.class);
+            startActivity(intent);
 
-            }
         });
-        btLevelNormal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LevelActivity.this, GameMiddleActivity.class);
-                startActivity(intent);
-            }
+        btLevelNormal.setOnClickListener(v -> {
+            Intent intent = new Intent(LevelActivity.this, GameMiddleActivity.class);
+            startActivity(intent);
         });
-        btLevelHard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LevelActivity.this, GameHardActivity.class);
-                startActivity(intent);
-            }
+        btLevelHard.setOnClickListener(v -> {
+            Intent intent = new Intent(LevelActivity.this, GameHardActivity.class);
+            startActivity(intent);
         });
         btData = findViewById(R.id.bt_data);
-        btData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LevelActivity.this,InfoActivity.class);
-                startActivity(intent);
+        btData.setOnClickListener(v -> {
+            Intent intent = new Intent(LevelActivity.this,InfoActivity.class);
+            startActivity(intent);
 
 
-            }
         });
-        Toast.makeText(LevelActivity.this,"LevelActivity",Toast.LENGTH_LONG).show();
 
     }
     // exit from app
