@@ -1,4 +1,4 @@
-package com.tsybulnik.gamememory;
+package com.tsybulnik.gamememory.network;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

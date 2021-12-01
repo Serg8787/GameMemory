@@ -26,45 +26,6 @@ public class LevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-
-//        AppsFlyerLib appsflyer = AppsFlyerLib.getInstance();
-        AppsFlyerLib appsflyer = AppsFlyerLib.getInstance().init("cBSeCBmTkWgWXb4cPFvgHn", null, this);
-        AppsFlyerLib.getInstance().start(this);
-        String id = appsflyer.getAppsFlyerUID(this);
-        AppsFlyerConversionListener appsFlyerConversionListener = new AppsFlyerConversionListener() {
-            @Override
-            public void onConversionDataSuccess(Map<String, Object> map) {
-                for (String attrName : map.keySet())
-                    Log.d("MyLog", "Conversion attribute: " + attrName + " = " + map.get(attrName));
-                String status = Objects.requireNonNull(map.get("af_status")).toString();
-                Toast.makeText(LevelActivity.this, status, Toast.LENGTH_LONG).show();
-                if (status.equals("Organic")) {
-                    // Business logic for Organic conversion goes here.
-                } else {
-                    // Business logic for Non-organic conversion goes here.
-                }
-
-            }
-
-            @Override
-            public void onConversionDataFail(String s) {
-                Log.d("MyLog", "error getting conversion data: " + s);
-
-            }
-
-            @Override
-            public void onAppOpenAttribution(Map<String, String> map) {
-
-            }
-
-            @Override
-            public void onAttributionFailure(String s) {
-                Log.d("MyLog", "error onAttributionFailure : " + s);
-
-            }
-        };
-
-
         btLevelSimple = findViewById(R.id.btLevelEasy);
         btLevelNormal = findViewById(R.id.tv_developer_surname);
         btLevelHard = findViewById(R.id.tv_);
@@ -87,7 +48,6 @@ public class LevelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LevelActivity.this, GameHardActivity.class);
-
                 startActivity(intent);
             }
         });
@@ -100,9 +60,9 @@ public class LevelActivity extends AppCompatActivity {
 
             }
         });
+        Log.e("MyLog", "Conversion attribute: " );
     }
-    // exit
-
+    // exit from app
     @Override
     public void onBackPressed() {
         super.onBackPressed();

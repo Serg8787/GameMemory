@@ -330,15 +330,15 @@ public class GameSimpleActivity extends AppCompatActivity {
 
 
             AlertDialog.Builder alertBulder = new AlertDialog.Builder(GameSimpleActivity.this);
-            alertBulder.setMessage("Конец игры")
+            alertBulder.setMessage(R.string.finish_level)
                     .setCancelable(false)
-                    .setPositiveButton("Новая игра", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.new_game, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             retryGame();
                         }
                     })
-                    .setNegativeButton("Назад", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.back, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(GameSimpleActivity.this, LevelActivity.class);

@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">GameMemory</string>
-    <string name="choose_level_title">Выбирите уровень</string>
+    <string name="choose_level_title">Выбeрите уровень</string>
     <string name="easy_level">Первый уровень</string>
     <string name="normal_level">Второй уровень</string>
     <string name="hard_level">Третий уровень</string>
+    <string name="country_ru">RU</string>
+    <string name="country_ua">UA</string>
+    <string name="wiki">https://ru.wikipedia.org/wiki/</string>
+    <string name="base_url_geo">https://ipinfo.io/</string>
+    <string name="data_firebase">Данные из Firebase</string>
+    <string name="data_gadget">Данные c устройства</string>
+    <string name="get_data">Get Data</string>
+    <string name="finish_level">Вы выиграли!</string>
+    <string name="new_game">Новая игра</string>
+    <string name="back">Назад</string>
+    <string name="key_appsFluers">cBSeCBmTkWgWXb4cPFvgHn</string>
 </resources>

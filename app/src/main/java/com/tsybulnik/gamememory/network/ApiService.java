@@ -1,4 +1,4 @@
-package com.tsybulnik.gamememory;
+package com.tsybulnik.gamememory.network;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

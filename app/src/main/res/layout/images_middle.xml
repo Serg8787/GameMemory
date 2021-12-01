@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/holo_blue_light"
     android:weightSum="3">
 
     <LinearLayout
@@ -18,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
         <ImageView
             android:id="@+id/iv_12"
@@ -26,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
         <ImageView
             android:id="@+id/iv_13"
@@ -34,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
 
         <ImageView
@@ -43,7 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
     </LinearLayout>
     <LinearLayout
@@ -59,7 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
         <ImageView
             android:id="@+id/iv_22"
@@ -67,7 +73,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
         <ImageView
             android:id="@+id/iv_23"
@@ -75,7 +82,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
 
         <ImageView
@@ -84,7 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
     </LinearLayout>
     <LinearLayout
@@ -100,32 +109,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/back_view"/>
 
         <ImageView
             android:id="@+id/iv_32"
             android:layout_weight="1"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:background="@drawable/back_view"/>
 
         <ImageView
             android:id="@+id/iv_33"
             android:layout_weight="1"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:background="@drawable/back_view"/>
 
 
         <ImageView
             android:id="@+id/iv_34"
             android:layout_weight="1"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/question"
-            android:scaleType="centerInside"/>
+            android:background="@drawable/back_view"/>
 
     </LinearLayout>
 

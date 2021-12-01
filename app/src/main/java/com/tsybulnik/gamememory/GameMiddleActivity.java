@@ -371,17 +371,16 @@ public class GameMiddleActivity extends AppCompatActivity {
                 iv_34.getVisibility() == View.INVISIBLE
                ) {
 
-
             AlertDialog.Builder alertBulder = new AlertDialog.Builder(GameMiddleActivity.this);
-            alertBulder.setMessage("Конец игры")
+            alertBulder.setMessage(R.string.finish_level)
                     .setCancelable(false)
-                    .setPositiveButton("New GAME", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.new_game, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             retryGame();
                         }
                     })
-                    .setNegativeButton("Назад", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.back, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent(GameMiddleActivity.this, LevelActivity.class);
