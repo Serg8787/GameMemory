@@ -107,22 +107,16 @@ public class InfoActivity extends AppCompatActivity {
 
 
         // for real-time
-        mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
-            @Override
-            public void onComplete(@NonNull Task<Boolean> task) {
-                String name = mFirebaseRemoteConfig.getString("developer_name");
-                String surname = mFirebaseRemoteConfig.getString("developer_surname");
-                developerName.setText(name);
-                developerSurname.setText(surname);
-            }
+        mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(task -> {
+            String name = mFirebaseRemoteConfig.getString(getString(R.string.developer_name));
+            String surname = mFirebaseRemoteConfig.getString(getString(R.string.developer_surname));
+            developerName.setText(name);
+            developerSurname.setText(surname);
         });
 
         model.setText(Build.MODEL);
         manufactura.setText(Build.MANUFACTURER);
         versionAndroid.setText(android.os.Build.VERSION.RELEASE);
         tv_appsFluersId.setText(appsFlyerId);
-
-
-
     }
 }
