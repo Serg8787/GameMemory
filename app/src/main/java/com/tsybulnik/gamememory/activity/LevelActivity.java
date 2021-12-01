@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,9 +53,11 @@ public class LevelActivity extends AppCompatActivity {
                 Intent intent = new Intent(LevelActivity.this,InfoActivity.class);
                 startActivity(intent);
 
+
             }
         });
-        Log.e("MyLog", "Conversion attribute: " );
+        Toast.makeText(LevelActivity.this,"LevelActivity",Toast.LENGTH_LONG).show();
+
     }
     // exit from app
     @Override

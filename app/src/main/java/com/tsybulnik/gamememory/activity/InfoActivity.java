@@ -1,5 +1,7 @@
 package com.tsybulnik.gamememory.activity;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appsflyer.AppsFlyerConversionListener;
 import com.appsflyer.AppsFlyerLib;
@@ -28,13 +29,16 @@ public class InfoActivity extends AppCompatActivity {
     private TextView versionAndroid;
     private TextView tv_appsFluersId;
     private TextView tv_appsFluersParametrs;
+
+    public static final String LOG_TAG = "AppsFlyerOneLinkSimApp";
+    public static final String DL_ATTRS = "dl_attrs";
     Map<String, Object> conversionData = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-
 
         model = findViewById(R.id.tv_model);
         manufactura = findViewById(R.id.tv_manufacture);
@@ -44,47 +48,50 @@ public class InfoActivity extends AppCompatActivity {
         tv_appsFluersId = findViewById(R.id.tv_appsFluer_id);
         tv_appsFluersParametrs = findViewById(R.id.tv_appsFluer_parameters);
 
+        String afDevKey = getString(R.string.key_appsFluers);
+        AppsFlyerLib appsflyer = AppsFlyerLib.getInstance();
+        appsflyer.setMinTimeBetweenSessions(0);
+        appsflyer.setDebugLog(true);
 
-        AppsFlyerLib.getInstance().start(this);
-        AppsFlyerLib.getInstance().setDebugLog(true);
-
-         AppsFlyerLib  appsFlyer = AppsFlyerLib.getInstance().init(getString(R.string.key_appsFluers), new AppsFlyerConversionListener() {
+        AppsFlyerConversionListener conversionListener =  new AppsFlyerConversionListener() {
             @Override
-            public void onConversionDataSuccess(Map<String, Object> map) {
-                tv_appsFluersParametrs.setText("onConversionDataSuccess");
-                for (String attrName : map.keySet())
-                    Log.d("MyLog", "Conversion attribute: " + attrName + " = " + map.get(attrName));
-                Toast.makeText(InfoActivity.this,"Conversion attribute: ",Toast.LENGTH_LONG).show();
-                String status = Objects.requireNonNull(map.get("af_status")).toString();
+            public void onConversionDataSuccess(Map<String, Object> conversionDataMap) {
+                for (String attrName : conversionDataMap.keySet())
+                    Log.d(LOG_TAG, "Conversion attribute: " + attrName + " = " + conversionDataMap.get(attrName));
+                String status = Objects.requireNonNull(conversionDataMap.get("af_status")).toString();
                 if(status.equals("Non-organic")){
-                    if( Objects.requireNonNull(map.get("is_first_launch")).toString().equals("true")){
-                        Log.d("MyLog","Conversion: First Launch");
+                    if( Objects.requireNonNull(conversionDataMap.get("is_first_launch")).toString().equals("true")){
+                        Log.d(LOG_TAG,"Conversion: First Launch");
                     } else {
-                        Log.d("MyLog","Conversion: Not First Launch");
+                        Log.d(LOG_TAG,"Conversion: Not First Launch");
                     }
                 } else {
-                    Log.d("MyLog", "Conversion: This is an organic install.");
+                    Log.d(LOG_TAG, "Conversion: This is an organic install.");
                 }
-                conversionData = map;
-                Toast.makeText(InfoActivity.this,conversionData.toString(),Toast.LENGTH_LONG).show();
+                conversionData = conversionDataMap;
+                String con = conversionData.toString();
+            }
 
-            }
             @Override
-            public void onConversionDataFail(String s) {
-                tv_appsFluersParametrs.setText("onConversionDataFail");
-                String s1= s;
+            public void onConversionDataFail(String errorMessage) {
+                Log.d(LOG_TAG, "error getting conversion data: "+errorMessage);
+                String er = errorMessage;
+            }
 
-            }
             @Override
-            public void onAppOpenAttribution(Map<String, String> map) {
-                tv_appsFluersParametrs.setText("onAppOpenAttribution");
+            public void onAppOpenAttribution(Map<String, String> attributionData) {
+                Log.d(LOG_TAG, "onAppOpenAttribution: This is fake call.");
+                String att = attributionData.toString();
             }
+
             @Override
-            public void onAttributionFailure(String s) {
-                tv_appsFluersParametrs.setText(s);
+            public void onAttributionFailure(String errorMessage) {
+                Log.d(LOG_TAG, "error onAttributionFailure : " + errorMessage);
+                String e = errorMessage;
             }
-        }, this);
-        appsFlyer.start(this);
+        };
+        appsflyer.init(afDevKey, conversionListener, this);
+        appsflyer.start(this);
 
 
 
@@ -114,6 +121,7 @@ public class InfoActivity extends AppCompatActivity {
         manufactura.setText(Build.MANUFACTURER);
         versionAndroid.setText(android.os.Build.VERSION.RELEASE);
         tv_appsFluersId.setText(appsFlyerId);
+
 
 
     }
