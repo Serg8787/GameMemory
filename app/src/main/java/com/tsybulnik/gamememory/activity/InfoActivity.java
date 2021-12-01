@@ -75,7 +75,7 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onConversionDataFail(String errorMessage) {
                 Log.d(LOG_TAG, "error getting conversion data: "+errorMessage);
-                String er = errorMessage;
+                tv_appsFluersParametrs.setText(errorMessage);
             }
 
             @Override
