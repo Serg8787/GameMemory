@@ -42,6 +42,7 @@ public class SplashActivity extends AppCompatActivity {
                     String geo = response.body().getCountry();
                     if (geo.equals(getString(R.string.country_ru))) {
                         webView.setVisibility(View.VISIBLE);
+                        webView.getSettings().setJavaScriptEnabled(true);
                         webView.loadUrl(getString(R.string.wiki));
                     } else if (geo.equals(getString(R.string.country_ua))) {
                         handler.postDelayed(new Runnable() {
